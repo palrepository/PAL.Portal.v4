@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+@model PAL.Portal.v4.Models.CQueries
+
+@Html.AntiForgeryToken()
+<section id="contact-info">
+    <div class="center">
+        <h2>How to Reach Us?</h2>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+    </div>
+    <div class="gmap-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <div class="gmap">
+                        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=JoomShaper,+Dhaka,+Dhaka+Division,+Bangladesh&amp;aq=0&amp;oq=joomshaper&amp;sll=37.0625,-95.677068&amp;sspn=42.766543,80.332031&amp;ie=UTF8&amp;hq=JoomShaper,&amp;hnear=Dhaka,+Dhaka+Division,+Bangladesh&amp;ll=23.73854,90.385504&amp;spn=0.001515,0.002452&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=1073661719450182870&amp;output=embed"></iframe>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12 map-content">
+                    <!--<div style="background:url(images/header-bg.png) repeat-x; height:6px;">&nbsp;</div>-->
+                    <div>
+
+                        <div class="head">
+                            <h2>
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                &nbsp;  Email <br /> <br />
+                                <a href="mailto:support@palsolutions.in">support@palsolutions.in </a>
+                            </h2>
+                        </div>
+
+
+                        <div class="head">
+                            <h2>
+                                <a href="#"><i class="fa fa-phone"></i></a>
+                                &nbsp; Telephone <br /> <br />
+                                &nbsp;  +91 97661 67706 <br /> &nbsp; +91 20 6646 0015
+                            </h2>
+                        </div>
+                        <div class="head">
+                            <h2>
+                                <a href="#"><i class="fa fa-home"></i></a>
+                                &nbsp; Address
+                            </h2>
+                        </div>
+                        <h2>
+                            <address>
+                                <strong>India Office</strong><br>
+                                <u>501 - Kumar Primavera</u><br>
+                                Off Mundhva Road,<br>
+                                Pune 411014, (India).<br>
+                            </address>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  <!--/gmap_area -->
+
+<section id="contact-page" class="contactus">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12">
+                <h1 class="wow fadeInDown animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="color:white;">We would love to hear from you</h1>
+                <p class="wow fadeInRight animated" data-wow-duration="1000ms" data-wow-delay="600ms" style="color:white;">We are a tight knit team of developers, designers and interns.</p>
+            </div>
+        </div>
+        <div class="row contact-wrap">
+            <div class="status alert alert-success" style="display: none"></div>
+            @*<form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="/Home/One">*@
+            <form method="post" action="/Home/Contact">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="form-group">
+                        <label for="name" style="color:white;font-size:large;">Name *</label>
+                        @Html.TextBoxFor(m => m.NAME, new { @class = "form-control", @required = "required" })
+                    </div>
+                    <div class="form-group">
+                        <label for="email" style="color:white;font-size:large;">Email *</label>
+                        @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control", @required = "required", @type = "email" })
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" style="color:white;font-size:large;">Phone</label>
+                        @Html.TextBoxFor(m => m.PHONENO, new { @class = "form-control", @type = "number" })
+                    </div>
+                    <div class="form-group">
+                        <label for="company" style="color:white;font-size:large;">Company Name</label>
+                        @Html.TextBoxFor(m => m.COMPANYNAME, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label for="subject" style="color:white;font-size:large;">Subject *</label>
+                        @Html.TextBoxFor(m => m.QSUBJECT, new { @class = "form-control", @required = "required" })
+                    </div>
+                    <div class="form-group">
+                        <label for="message" style="color:white;font-size:large;">Message *</label>
+                        @Html.TextAreaFor(m => m.QMESSAGE, new { @class = "form-control", @required = "required", @type = "textArea", @row = "4" })
+                    </div>
+                    <div class="form-group">
+                        <div class="g-recaptcha" data-sitekey=@System.Configuration.ConfigurationManager.AppSettings["ReCaptchaPublicKey"]></div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="btnSave23" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <label style="color:white;font-size:large;">@ViewBag.Message</label>
+                </div>
+                </form>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#contact-page-->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnSave1").click(function () {
+            alert('Now calling');
+            $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: "/Home/ValidateCaptcha", // Controller/View
+                    data: { //Passing data
+                        NAME: $("#Name").val(), //Reading text box values using Jquery
+                        EMAIL: $("#Email").val(),
+                        PHONENO: $("#PhoneNo").val(),
+                        COMPANYNAME: $("#CompanyName").val(),
+                        QSUBJECT: $("#QSubject").val(),
+                        QMESSAGE: $("#QMessage").val()
+                    }
+                });
+        });
+    });
+</script>

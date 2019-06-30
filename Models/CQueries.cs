@@ -15,14 +15,5 @@ namespace PAL.Portal.v4.Models
         public string QSUBJECT { get; set; }
         public string QMESSAGE { get; set; }
         public DateTime CREATEDAT { get; set; }
-    }
-    public class CustQuery
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PhoneNo { get; set; }
-        public string CompanyName { get; set; }
-        public string QSubject { get; set; }
-        public string QMessage { get; set; }
-    }
+    }    
 }

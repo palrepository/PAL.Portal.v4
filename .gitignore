@@ -2,3 +2,8 @@ bin/*
 obj/*
 packages/*
 
+/.vs/PAL.Portal.v4/v16/Server/sqlite3/db.lock
+/.vs/PAL.Portal.v4/v16/Server/sqlite3
+/.vs/PAL.Portal.v4/v16/.suo
+/Properties/PublishProfiles/FolderProfile.pubxml
+/Properties/PublishProfiles/FolderProfile.pubxml.user

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "DynamicCRM";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+<script>
+    $(document).ready(function () {
+        menu1('NavConsulting');
+        menu1('NavDynamicsCRM');
+    });
+</script>
+<section id="feature" class="transparent-bg">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2>Dynamics CRM Consulting Services</h2>
+            <p class="lead">We are providing Microsoft Dynamics CRM solutions from the basic “out of the box” model to a complex architecture featuring automation, dashboards, system integration and custom development.</p>
+        </div>
+        <div class="row">
+            <div class="features">
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-th"></i>
+                        <h2>Implementation</h2>
+                        <p>We help you to Optimize Business Performance</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-exchange"></i>
+                        <h2>Integration</h2>
+                        <p>We help you integrate content and syncronize your business applications and data</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-cogs"></i>
+                        <h2>Migration</h2>
+                        <p>We help you migrate or safely upgrade your Dynamics CRM environment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -16,6 +16,44 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Contents/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Contents/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/Contents/images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="~/Contents/js/jquery.js"></script>
+    <script src="~/Contents/js/bootstrap.min.js"></script>
+    <script src="~/Contents/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Contents/js/jquery.isotope.min.js"></script>
+    <script src="~/Contents/js/main.js"></script>
+    <script src="~/Contents/js/wow.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('a.btn-theme-setting').on('click', function () {
+                if ($('.theme-setting').css('left') < '0') {
+                    $('.theme-setting').css('left', '0');
+                } else {
+                    $('.theme-setting').css('left', '-300px');
+                }
+            });
+        });
+
+        function MenuHighlight(id) {
+            $("#NavIndex").removeClass("active");
+            $("#NavContact").addClass("active");
+        }
+
+        function menu1(id) {
+            //$("#NavIndex").removeClass("active");
+            //$("#NavConsulting").removeClass("active");
+            //$("#NavSharePoint").removeClass("active");
+            //$("#NavAzure").removeClass("active");
+            //$("#NavDynamicsCRM").removeClass("active");
+            ////$("#NavDevelopment").removeClass("active");
+            ////$("#NavDotNet").removeClass("active");
+            ////$("#NavMobile").removeClass("active");
+            //$("#NavBlogs").removeClass("active");
+            //$("#NavContact").removeClass("active");
+            //$("#NavAbout").removeClass("active");
+            $("#" + id).addClass("active");
+        }
+
+    </script>
 </head>
 <body class="homepage">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="banner">
@@ -32,98 +70,98 @@
             </div>
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        @Html.ActionLink("Home", "Index", "Home")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Products", "Index", "Products")
-                    </li>
-                    <li>
-                        @Html.ActionLink("About", "About", "Home")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Contact", "Contact", "Home")
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                    <li id="NavIndex">@Html.ActionLink("Index", "Index", "Home")</li>
+                    <li class="dropdown" id="NavConsulting">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consulting <i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog-item.html">Blog Single</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="shortcodes.html">Shortcodes</a></li>
+                            <li id="NavSharePoint">@Html.ActionLink("SharePoint", "SharePoint", "Consulting")
+                            <li id="NavAzure">@Html.ActionLink("Azure", "Azure", "Consulting")
+                            <li id="NavDynamicsCRM">@Html.ActionLink("DynamicCRM", "DynamicCRM", "Consulting")
                         </ul>
                     </li>
+                    @*<li id="NavConsulting">@Html.ActionLink("Products", "Index", "Products")</li>*@
+                    <li id="NavAbout">@Html.ActionLink("About", "About", "Home")</li>
+                    <li id="NavContact">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li class="dropdown" id="NavConsulting">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog-item.html">Blog Single</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                            </ul>
+                        </li>*@
                 </ul>
             </div>
         </div><!--/.container-->
     </nav><!--/nav-->
     <partial name="_CookieConsentPartial" />
     @RenderBody()
-    <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">We are hiring</a></li>
-                            <li><a href="#">Meet the team</a></li>
-                            <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
+    @*<section id="bottom">
+            <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h3>Company</h3>
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">We are hiring</a></li>
+                                <li><a href="#">Meet the team</a></li>
+                                <li><a href="#">Copyright</a></li>
+                                <li><a href="#">Terms of use</a></li>
+                                <li><a href="#">Privacy policy</a></li>
+                                <li><a href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Support</h3>
-                        <ul>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Refund policy</a></li>
-                            <li><a href="#">Ticket system</a></li>
-                            <li><a href="#">Billing system</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h3>Support</h3>
+                            <ul>
+                                <li><a href="#">Faq</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Forum</a></li>
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Refund policy</a></li>
+                                <li><a href="#">Ticket system</a></li>
+                                <li><a href="#">Billing system</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Developers</h3>
-                        <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                            <li><a href="#">Plugin Development</a></li>
-                            <li><a href="#">Article Writing</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h3>Developers</h3>
+                            <ul>
+                                <li><a href="#">Web Development</a></li>
+                                <li><a href="#">SEO Marketing</a></li>
+                                <li><a href="#">Theme</a></li>
+                                <li><a href="#">Development</a></li>
+                                <li><a href="#">Email Marketing</a></li>
+                                <li><a href="#">Plugin Development</a></li>
+                                <li><a href="#">Article Writing</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul>
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="widget">
+                            <h3>Our Partners</h3>
+                            <ul>
+                                <li><a href="#">Adipisicing Elit</a></li>
+                                <li><a href="#">Eiusmod</a></li>
+                                <li><a href="#">Tempor</a></li>
+                                <li><a href="#">Veniam</a></li>
+                                <li><a href="#">Exercitation</a></li>
+                                <li><a href="#">Ullamco</a></li>
+                                <li><a href="#">Laboris</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3-->
+                </div>
             </div>
-        </div>
-    </section><!--/#bottom-->
+        </section><!--/#bottom-->*@
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
@@ -134,22 +172,17 @@
                 <div class="col-sm-6">
                     <div class="social">
                         <ul class="social-share">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="https://www.facebook.com/Pal-Solutions-958373784225747"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/pal_solutions"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/pal-solutions-919540118"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="PAL.Supports"><i class="fa fa-skype"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer><!--/#footer-->
-    <script src="~/Contents/js/jquery.js"></script>
-    <script src="~/Contents/js/bootstrap.min.js"></script>
-    <script src="~/Contents/js/jquery.prettyPhoto.js"></script>
-    <script src="~/Contents/js/jquery.isotope.min.js"></script>
-    <script src="~/Contents/js/main.js"></script>
-    <script src="~/Contents/js/wow.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
+    
 </body>
 </html>

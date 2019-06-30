@@ -25,25 +25,21 @@ namespace PAL.Portal.v4.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
+           // ViewBag.Message = "Your contact page.";
+           
             return View();
         }
 
-        [HttpPost]
-        public ActionResult One() {
-            return Contact();
-        }
+        
 
         [HttpPost]
         public ActionResult Contact(CQueries custData)
         {
-
             string constr = ConfigurationManager.ConnectionStrings["CONSTR1"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
                 string query = "INSERT INTO CQueries(NAME, EMAIL, PHONENO, COMPANYNAME, QSUBJECT, QMESSAGE, CREATEDAT) VALUES(@NAME, @EMAIL, @PHONENO, @COMPANYNAME, @QSUBJECT, @QMESSAGE, @CREATEDAT)";
-                query += " SELECT SCOPE_IDENTITY()";
+               //  query += " SELECT SCOPE_IDENTITY()";
                 using (SqlCommand cmd = new SqlCommand(query))
                 {
                     cmd.Connection = con;
@@ -55,11 +51,19 @@ namespace PAL.Portal.v4.Controllers
                     cmd.Parameters.AddWithValue("@QSUBJECT", custData.QSUBJECT);
                     cmd.Parameters.AddWithValue("@QMESSAGE", custData.QMESSAGE);
                     cmd.Parameters.AddWithValue("@CREATEDAT", DateTime.Now);
-                    var id = Convert.ToInt32(cmd.ExecuteScalar());
+                    // var id = Convert.ToInt32(cmd.ExecuteScalar());
                     con.Close();
+                    ViewBag.Message = "Thanks for contacting with us. Your message have been saved. \n Our fearless team will get back to you very soon.";
+                    //custData.COMPANYNAME = string.Empty;
+                    //custData.EMAIL = string.Empty;
+                    //custData.NAME = string.Empty;
+                    //custData.PHONENO = string.Empty;
+                    //custData.QMESSAGE = string.Empty;
+                    //custData.QSUBJECT = string.Empty;                    
+                    //custData = null;
                 }
-            }
-            return Contact();
+                return Contact();
+            }           
         }        
     }
 }

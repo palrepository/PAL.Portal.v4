@@ -7,3 +7,4 @@ packages/*
 /.vs/PAL.Portal.v4/v16/.suo
 /Properties/PublishProfiles/FolderProfile.pubxml
 /Properties/PublishProfiles/FolderProfile.pubxml.user
+/PALV2-HTML/_backups/*
